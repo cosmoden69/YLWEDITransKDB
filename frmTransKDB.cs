@@ -284,7 +284,7 @@ namespace YLWEDITransKDB
             dr["success_fg"] = 0;
             dr["cust_code"] = "L33";
 
-            DataSet yds = MTRServiceModule.CallMTRServiceCall(security, ds);
+            DataSet yds = MTRServiceModule.CallMTRServiceCallPost(security, ds);
             if (yds != null && yds.Tables.Count > 0)
             {
                 if (yds.Tables.Contains("ErrorMessage")) throw new Exception(yds.Tables["ErrorMessage"].Rows[0]["Message"].ToString());
@@ -342,7 +342,7 @@ namespace YLWEDITransKDB
                     Application.DoEvents();
 
                     security.methodId = "commit";
-                    yds = MTRServiceModule.CallMTRServiceCall(security, ds);
+                    yds = MTRServiceModule.CallMTRServiceCallPost(security, ds);
                     if (yds != null && yds.Tables.Count > 0)
                     {
                         if (yds.Tables.Contains("ErrorMessage")) throw new Exception(yds.Tables["ErrorMessage"].Rows[0]["Message"].ToString());
